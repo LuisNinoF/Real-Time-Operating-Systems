@@ -3,10 +3,9 @@
  * Create osKernel with osScheduler for task scheduling and context switching
  *
  * Application:
- * Continuously monitor the water level of a tank with a level sensor via ADC.
- * Process the data of the ADC to adjust to real life meaning with characteristic curve: water level in a tank.
- * If the water level is above a threshold, turn on the pump. Otherwise, turn it off.
- * Notify via UART every time the pump status changes between on/off.
+ * Task 0 - Read sensor data: Continuously monitor the water level of a tank with a level sensor via ADC.
+ * Task 1 - Process sensor data: adjust sensor to real life meaning with characteristic curve, which is the water level in a tank.
+ * Task 2 - Control pump: if the water level is above a threshold, turn on the pump. Otherwise, turn it off. Also, notify via UART every time the pump status changes between on/off.
  *
  * Created by: Luis Nino
  * Last revision: 2025.10.30
@@ -42,9 +41,9 @@ const uint32_t MIN_WATER_LEVEL = 300;		// 300 mm
 int main(void)
 {
 	// Initialize drivers
-	uart2_tx_init();
-	pa1_adc_init();
-	GPIO_OUT_init();
+	uart2_tx_init();			// UART at PA2 (same as USB connector in Nucleo board) with baudrate 115200
+	pa1_adc_init();				// ADC at PA1
+	GPIO_OUT_init();			// GPIO out at PA5
 
 	// 1. Initialize Kernel
 	osKernelInit();
