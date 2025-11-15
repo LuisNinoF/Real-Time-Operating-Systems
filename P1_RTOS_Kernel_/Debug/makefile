@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := P2_RTOS_Kernel
+BUILD_ARTIFACT_NAME := P1_RTOS_Kernel_
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-P2_RTOS_Kernel.elf \
+P1_RTOS_Kernel_.elf \
 
 MAP_FILES += \
-P2_RTOS_Kernel.map \
+P1_RTOS_Kernel_.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-P2_RTOS_Kernel.list \
+P1_RTOS_Kernel_.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: P2_RTOS_Kernel.elf secondary-outputs
+main-build: P1_RTOS_Kernel_.elf secondary-outputs
 
 # Tool invocations
-P2_RTOS_Kernel.elf P2_RTOS_Kernel.map: $(OBJS) $(USER_OBJS) C:\Users\lfnin\OneDrive\Documents\Studies\Embedded\ Systems\8.\ Embedded_Expert_IO\5.\ Phase1\6.\ Milestones\P2_RTOS_Kernel\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "P2_RTOS_Kernel.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\lfnin\OneDrive\Documents\Studies\Embedded Systems\8. Embedded_Expert_IO\5. Phase1\6. Milestones\P2_RTOS_Kernel\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="P2_RTOS_Kernel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+P1_RTOS_Kernel_.elf P1_RTOS_Kernel_.map: $(OBJS) $(USER_OBJS) C:\Users\lfnin\git\Real-Time-Operating-Systems\P1_RTOS_Kernel_\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "P1_RTOS_Kernel_.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\lfnin\git\Real-Time-Operating-Systems\P1_RTOS_Kernel_\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="P1_RTOS_Kernel_.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-P2_RTOS_Kernel.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "P2_RTOS_Kernel.list"
+P1_RTOS_Kernel_.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "P1_RTOS_Kernel_.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) P2_RTOS_Kernel.elf P2_RTOS_Kernel.list P2_RTOS_Kernel.map default.size.stdout
+	-$(RM) P1_RTOS_Kernel_.elf P1_RTOS_Kernel_.list P1_RTOS_Kernel_.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
