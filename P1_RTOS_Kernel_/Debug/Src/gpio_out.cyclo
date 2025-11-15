@@ -1,0 +1,3 @@
+../Src/gpio_out.c:6:6:GPIO_OUT_init	1
+../Src/gpio_out.c:13:6:GPIO_OUT_on	1
+../Src/gpio_out.c:18:6:GPIO_OUT_off	1

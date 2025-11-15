@@ -1,0 +1,8 @@
+C:/Users/lfnin/OneDrive/Documents/Studies/Embedded Systems/8. Embedded_Expert_IO/5. Phase1/6. Milestones/P2_RTOS_Kernel/F4_chip_headers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/osKernel.c:64:6:osKernelStackInit	1
+../Src/osKernel.c:96:6:osKernelInit	1
+../Src/osKernel.c:107:9:osKernelAddThreads	1
+../Src/osKernel.c:141:6:osKernelLaunch	1
+../Src/osKernel.c:170:6:SysTick_Handler	1
+../Src/osKernel.c:177:6:osScheduler	1
+../Src/osKernel.c:182:6:osThreadYield	1
