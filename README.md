@@ -21,3 +21,7 @@ P2 FreeRTOS - shows a custom application built on FreeRTOS, including: interrupt
 
 - Assembly
 - C
+
+### Hardware
+
+- STM32F4
